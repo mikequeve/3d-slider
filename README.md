@@ -1,6 +1,6 @@
 ## 3D Card Slider
 
-3D slider developed using ReactJs - Typescript - AI and a some of coffee.
+3D slider developed using ReactJs - Typescript and AI
 
 ### Demo link
 
