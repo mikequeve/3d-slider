@@ -1,0 +1,79 @@
+@import '@fontsource/anton';
+
+:root {
+  --main-color: #0d0a0d;
+  --text-color: #f9f6f8;
+  --action-color: #a60f2b;
+  --title-font: 'Anton', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: sans-serif;
+  color: var(--text-color);
+  background-color: var(--main-color);
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--title-font);
+  letter-spacing: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+section {
+  min-height: 100vh;
+}
+
+.flex,
+.flex-column,
+.center {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: min(100%, 1280px);
+  padding: 6.25rem 1rem;
+}
+
+.primary-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--action-color);
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+  img {
+    background-color: var(--text-color);
+    border-radius: 50%;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}

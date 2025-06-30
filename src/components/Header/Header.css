@@ -1,0 +1,132 @@
+.site-header {
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+
+  .container {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .site-header__left {
+      gap: 1rem;
+
+      .site-logo {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: var(--title-font);
+        letter-spacing: 2px;
+        color: var(--action-color);
+      }
+
+      .site-menu {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        gap: 4rem;
+        background-color: var(--main-color);
+        transform: translateX(-100%);
+        transition: all 300ms ease-in-out;
+        z-index: 9999;
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        .site-menu__item {
+          position: relative;
+          font-weight: 700;
+
+          &::after {
+            position: absolute;
+            left: 50%;
+            top: -35px;
+            width: 200px;
+            height: 3px;
+            content: '';
+            background-color: var(--text-color);
+            transform: translateX(-50%);
+          }
+
+          &:nth-child(1)::after {
+            display: none;
+          }
+        }
+
+        .social-media {
+          position: absolute;
+          bottom: 3vh;
+          left: 50%;
+          gap: 0.5rem;
+          transform: translateX(-50%);
+
+          .social-media__logo {
+            padding: 0.6rem;
+            background-color: var(--text-color);
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    .menu-btn__container {
+      position: fixed;
+      bottom: 3vh;
+      right: 3vw;
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--action-color);
+      border-radius: 50%;
+      z-index: 99999;
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  .site-header {
+    .container {
+      .site-header__left {
+        gap: 1rem;
+
+        .site-menu {
+          position: relative;
+          inset: initial;
+          flex-direction: row;
+          justify-content: start;
+          width: 55rem;
+          gap: 1rem;
+          transform: initial;
+
+          .site-menu__item {
+            &::after {
+              left: -8px;
+              top: 50%;
+              width: 2px;
+              height: 120%;
+              transform: translateY(-50%);
+            }
+          }
+
+          .social-media {
+            position: absolute;
+            bottom: initial;
+            left: initial;
+            right: 0;
+            transform: initial;
+            gap: 0.5rem;
+
+            .social-media__logo {
+              padding: 0.6rem;
+              background-color: var(--text-color);
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+
+      .menu-btn__container {
+        display: none;
+      }
+    }
+  }
+}
