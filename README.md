@@ -4,7 +4,7 @@
 
 ### Demo link
 
-https://3d-slider-l5uvwppak-mikequeves-projects.vercel.app/
+https://3d-slider-three.vercel.app/
 
 ### Connect with Me
 
