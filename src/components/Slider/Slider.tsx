@@ -6,22 +6,22 @@ import gsap from 'gsap';
 const slides: Slide[] = [
   {
     img: './021.jpg',
-    text: 'Recorrido dentro de nuestro bosque privado',
+    text: 'Recorrido dentro de nuestro bosque privado 1',
     title: 'Piscina Termal',
   },
   {
     img: './021.jpg',
-    text: 'Recorrido dentro de nuestro bosque privado2',
+    text: 'Recorrido dentro de nuestro bosque privado 2',
     title: 'Bosque Privado',
   },
   {
     img: './021.jpg',
-    text: 'Recorrido dentro de nuestro bosque privado3',
+    text: 'Recorrido dentro de nuestro bosque privado 3',
     title: 'Grupos Reducidos',
   },
   {
     img: './021.jpg',
-    text: 'Recorrido dentro de nuestro bosque privado3',
+    text: 'Recorrido dentro de nuestro bosque privado 4',
     title: 'Experiencia Exclusiva',
   },
 ];
@@ -150,42 +150,47 @@ const Slider: React.FC = () => {
       <article className='flex-column center container'>
         <div className='flex center cards-container'>
           {slides.map((slide, index) => (
-            <div
-              className='flex-column slide-card'
-              key={index}
-              ref={(el) => {
-                if (el) cardsRef.current[index] = el;
-              }}
-              onMouseDown={(e) => {
-                e.preventDefault();
-                setDragStartX(e.clientX);
-                setIsDragging(true);
-              }}
-              onMouseMove={(e) => {
-                handleCardDrag(e.clientX);
-              }}
-              onMouseUp={() => {
-                setIsDragging(false);
-                setDragStartX(null);
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave(index);
-                setIsDragging(false);
-                setDragStartX(null);
-              }}
-              onTouchStart={(e) => {
-                setDragStartX(e.touches[0].clientX);
-                setIsDragging(true);
-              }}
-              onTouchMove={(e) => handleCardDrag(e.touches[0].clientX)}
-              onTouchEnd={() => {
-                setIsDragging(false);
-                setDragStartX(null);
-              }}
-            >
-              <img src={slide.img} alt='' />
-              <h4>{slide.title}</h4>
-            </div>
+            <>
+              <div
+                className='flex-column slide-card'
+                key={index}
+                ref={(el) => {
+                  if (el) cardsRef.current[index] = el;
+                }}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  setDragStartX(e.clientX);
+                  setIsDragging(true);
+                }}
+                onMouseMove={(e) => {
+                  handleCardDrag(e.clientX);
+                }}
+                onMouseUp={() => {
+                  setIsDragging(false);
+                  setDragStartX(null);
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave(index);
+                  setIsDragging(false);
+                  setDragStartX(null);
+                }}
+                onTouchStart={(e) => {
+                  setDragStartX(e.touches[0].clientX);
+                  setIsDragging(true);
+                }}
+                onTouchMove={(e) => handleCardDrag(e.touches[0].clientX)}
+                onTouchEnd={() => {
+                  setIsDragging(false);
+                  setDragStartX(null);
+                }}
+              >
+                <img src={slide.img} alt='' />
+                <h4>{slide.title}</h4>
+              </div>
+              <div key={index + 1} className='slide-text'>
+                {slides[activeIndex].text}
+              </div>
+            </>
           ))}
           <div ref={wheelRef} className='flex center wheel'>
             <img src='./Llanta.png' alt='' />
